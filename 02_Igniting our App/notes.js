@@ -116,7 +116,7 @@ Why package.json is needed?
 
 
 //******************************************************************************************************************************************************************************* */
-// What  is integrity inside parcel in package-lock.json
+// What  is integrity inside every dependency in package-lock.json
 
 // integrity :- a SHA512 hash to make sure whatever dependencies are there in local machine, the same version is there deployed during production
 
@@ -150,6 +150,15 @@ Why package.json is needed?
 //Node modules should never be put into github while hoisting our project in the repository
 //Because of two reasons
 // --> node modules is too bulky
+// --> we can re-generate the entire dependencies along with the node modules directory by simply using the command :-  "npm install"
+
+//After the package.json and package-lock.json have already been configured
+// --> we can generate the required dependencies and node_modules anytime using "npm i"
+// --> all the dependencies which are only present in package.json and package-lock.json will be installed
+
+
+//NOTE :- Hence it is always important to put our package.json and package-lock.json in GITHUB
+
 
 
 
