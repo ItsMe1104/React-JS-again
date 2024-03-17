@@ -1,3 +1,5 @@
+import React from "react"
+import ReactDOM from "react-dom/client"
 
 //create a div element using JS 
 const div_ele = document.createElement("div");
@@ -6,7 +8,7 @@ const div_ele = document.createElement("div");
 document.body.appendChild(div_ele);
 
 //creating a React element of type "h1"
-const heading = React.createElement("h1", { id: "heading" }, "Hello World From React 2");
+const heading = React.createElement("h1", { id: "heading" }, "Hello World From React 2 🚀🚀");
 
 //Creating root of virtual DOM
 const root = ReactDOM.createRoot(div_ele);

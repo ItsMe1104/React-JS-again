@@ -1,22 +1,27 @@
 {
   "name": "02_igniting-our-app",
   "version": "1.0.0",
-  "description": "React Practice Material",
-  "main": "App.js",
-  "scripts": {
+  "description": "React tutorial",
+    "scripts": {
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ItsMe1104/React-again.git"
+    "url": "git+https://github.com/ItsMe1104/React-JS-again.git"
   },
   "author": "Hrithik Shaw",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ItsMe1104/React-again/issues"
+    "url": "https://github.com/ItsMe1104/React-JS-again/issues"
   },
-  "homepage": "https://github.com/ItsMe1104/React-again#readme",
+  "homepage": "https://github.com/ItsMe1104/React-JS-again#readme",
   "devDependencies": {
-    "parcel": "^2.12.0"
-  }
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+"browserslist" : [ "last 2 versions"]
 }

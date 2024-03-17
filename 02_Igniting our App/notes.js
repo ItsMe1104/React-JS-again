@@ -173,6 +173,55 @@ Why package.json is needed?
 
 
 //********************************************************************************************************************************************************* */
-// Summary
-// use "npm init"
-// use npm i -D parcel
+/*
+Summary :-
+i) use "npm init"
+ --> for test commands :- type "jest"
+ii) use npm i -D parcel
+iii) remove the cdn links from body of html tag
+iv) Use "npm i react" as a normal dependency
+v) USE "npm i react-dom"
+vi) Create a file named ".gitignore"
+vii) --> put "/node_modules" inside it
+
+
+ix) In our js file
+a) --> import React from "react"
+b) --> import ReactDOM from "react-dom"
+
+
+x) In our index.html file
+a) --> add ( type = "module") in the script tag to change it to a module
+
+
+
+xi) For DEVELOPMENT build
+a) use --> "npx parcel src_file_name"
+--> src_file_name = index.html
+
+
+
+xii) For PRODUCTION build
+b) use --> "npx parcel build src_file_name"  (for production build)
+--> src_file_name = index.html
+
+
+ERROR FIX :-
+
+i.e remove ( "main": "App.js" ) from package.json
+--> then run the production command again
+
+
+xiii) Put .parcel-cache and dist directory in .gitignore file since we can regenerate it 
+--> /.parcel-cache
+--> /dist
+
+
+xiii) Add a key-value pair for browserslist in package.json
+--> Mostly recommended
+
+"browserslist" : [ "last 2 versions"]
+
+*/
+
+
