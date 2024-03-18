@@ -17,6 +17,10 @@
 
 
 
+// NOTE :- In industry projects always inorder to run the project, go to the package.json and try executing the script commands
+
+
+
 
 //********************************************************************************************************************************************************************************************************* */
 
@@ -43,3 +47,29 @@
 
 
 // These script commands behind the scenes run the old commands onlybecause we have configured that in our package.json
+
+
+
+
+//********************************************************************************************************************************************************************************************************* */
+
+// 3) React replaces everything inside the root div once it starts rendering.
+
+// Hence, it is good practice to put that div's content inside html as "Not rendered"
+// so that if React is not able to render anything in that root div due to a bug, the div's content will not get replaced and it will give us the notice
+
+
+
+//********************************************************************************************************************************************************************************************************* */
+
+
+
+// 4) JSX :- Javascript XML
+
+// React Element is just an object and not an HTML element
+// when we render this object in the DOM, it becomes an HTML element
+
+
+//But creating React Element (which at last is converted into html element using render()) is a painful method
+
+
