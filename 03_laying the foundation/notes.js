@@ -1,3 +1,10 @@
+//Extensions to install :-
+//--> Prettier by Prettier
+//--> Bracket Pair Colorization Toggler By Dzhavat Ushev
+//--> ESLint by Microsoft
+//--> Better Comments by Aaron Bond 
+
+
 //1) Using scripts to shorten our commands
 
 // --> Instead of writing long commands again and again to make a production or development build
@@ -116,7 +123,7 @@ console.log(jsxHeading);
 //***************************************************************************************************************************************************************************************************** */
 
 
-//5) JSX till BROWSER
+//5) BABEL :-
 
 //--> JSX is transpiled before it reaches the Browser using Babel
 //--> Babel is bydefault installed by parcel.
@@ -136,6 +143,53 @@ console.log(jsxHeading);
 
 
 
-
-
 // Some other features of Babel: -
+//---> When some older browsers dont understand ES6 code
+//---> Babel transpiles the ES6 code into a code that older browser understands
+
+
+// HOW ?
+// Babel reads tokesn character by character and then constructs an abstract syntax tree and from there it converts
+
+
+
+
+
+//******************************************************************************************************************************************************************************************************************************* */
+
+
+
+
+// 6) Some rules of JSX :-
+
+// i) To give a class in html, we use the "class" attribute but to give a class in JSX, we use the "className" attribute
+// --> This is beacause class is a reserved keyword in JS
+// --> Even if we give className attribute in JSx, after rendering it will be converted to normal "class" attribute in HTML element
+
+
+//Html
+// <h1 class = "heading "> This is HTML </h1>
+
+//JSX
+<h1 className="heading "> This is HTML </h1>
+
+
+
+//ii) In JSX, mainly the attributes are in camelcase unlike in HTML
+
+//e.g :-
+// tabindex = "1"  (HTML)
+// tabIndex = "1"  (JSX)
+
+
+
+//iii) If the whole JSX tag is written in single line then, its valid JSX
+// --> But if it is written in multiple lines then we have to put it in braces
+// --> This is done so that Babel can understand the starting and ending of JSX syntax
+// --> Even single line JSX can be be written inside braces but unnecessary 
+
+
+let jsx_heading_1 = <h1 className="heading"> Heading 1</h1>
+
+let jsx_heading_2 = (<h1 className="heading">
+  Heading 2 </h1>);
