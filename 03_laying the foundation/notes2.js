@@ -23,7 +23,7 @@
 //************************************************************************************************************************************************************************************************************ */
 
 
-// 2) Functional Components :-
+// 2) Functional Components and its Rules:-
 
 //a) Definition
 //  ==> A Functional Component is a normal JS function which returns jsx or bunch of nexted jsx elements
@@ -39,6 +39,21 @@ const Func = function () {
 const HeadingComponent = () => {
   return <h1>React's Functional Component</h1>
 }
+
+
+
+// Rules :-
+// i) Always name a component with a capital Letter else it will throw error
+// Its a React way to know it is a component
+
+// ii) Every component can return only one jsx element with no siblings
+// --> It can be nested
+// --> Hence, we prefer to wrap the whole nsted jsx in a div and return that div
+// --> Else instead of returning a div we can also use a "fragment" i.e <></>
+
+
+
+
 
 
 //Using arrow function in JS, we can
@@ -60,11 +75,11 @@ const HeadingComponent3 = () => (<h1>
 
 const Heading_Component = () => {
   return (
-    <div className="">
+    <>
       <h1 className="head n ing">
         React's Functional Component
       </h1>
-    </div>
+    </>
   );
 }
 
