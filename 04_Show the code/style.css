@@ -1,0 +1,75 @@
+.header{
+  /* To make logo and nav-items come horizontally */
+  display: flex;
+  /* Space between the siblings(logo and nav-items) */
+  justify-content: space-between;
+
+  border: 1px solid black;
+  padding: 0 100px;
+}
+
+
+
+/* Logo-image */
+.logo{
+  width: 150px;
+}
+
+
+
+/* ul inside nav-items div  */
+.nav-items > ul {
+  /* To make the nav-items list come horizontally */
+  display: flex;
+
+  font-size: 24px;
+
+  /* To remove the bullets in lists */
+  list-style-type: none;
+}
+
+
+
+.nav-items > ul > li{
+  padding: 10px;
+  margin: 10px;
+}
+
+.item:hover{
+  color: #E44C77;
+  cursor: pointer;
+}
+
+/* search bar */
+.search{
+  padding: 10px;
+}
+
+
+/* container containing all the restaurant cards */
+.res-container{
+
+  /* To make all the cards come horizontally */
+  display: flex;
+  
+  /* To wrap the items down as we shrink the page and vice versa */
+  flex-wrap: wrap;
+}
+
+/* restaurant card */
+.res-card {
+  width: 200px;
+  height: 300px;
+  padding: 5px;
+  margin: 5px;
+}
+
+/* dont give space between class name and :hover, else it will give error */
+.res-card:hover {
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.res-logo{
+  width: 100%;
+}
