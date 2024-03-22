@@ -49,14 +49,14 @@ const styleCard = {
   backgroundColor: "#f0f0f0",
 }
 
-const RestaurantCard = () => {
+const RestaurantCard = (props) => {
   return (
 
     // one restaurant card 
     <div className="res-card" style={styleCard}>
       <img className="res-logo"
         src="https://th.bing.com/th/id/OIF.EpiMfKFDBcJFMWHPCIPU8A?w=319&h=180&c=7&r=0&o=5&pid=1.7" alt="restaurant-logo" srcset="" />
-      <h3>Meghana Foods</h3>
+      <h3>{props.name}</h3>
       <h4>Biryani, North Indian, Asian</h4>
       <h4>4.4 stars</h4>
       <h4>38 minutes</h4>
@@ -77,28 +77,9 @@ const Body = () => {
       <div className="res-container">
 
         {/* //RestaurantCard :- since it will be reused again and again*/}
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
+        <RestaurantCard name="Meghana Foods" />
+        {RestaurantCard({ name: "KFC" })}
+
       </div>
     </div>
   )
