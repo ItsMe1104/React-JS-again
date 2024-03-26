@@ -49,20 +49,27 @@ const styleCard = {
   backgroundColor: "#f0f0f0",
 }
 
+
 const RestaurantCard = (props) => {
+
+  //Destructuring props 
+  const { resName, cuisine } = props;
+
   return (
 
     // one restaurant card 
     <div className="res-card" style={styleCard}>
       <img className="res-logo"
         src="https://th.bing.com/th/id/OIF.EpiMfKFDBcJFMWHPCIPU8A?w=319&h=180&c=7&r=0&o=5&pid=1.7" alt="restaurant-logo" srcset="" />
-      <h3>{props.name}</h3>
-      <h4>Biryani, North Indian, Asian</h4>
+      <h3>{resName}</h3>
+      <h4>{cuisine}</h4>
       <h4>4.4 stars</h4>
       <h4>38 minutes</h4>
     </div>
   )
 }
+
+
 const Body = () => {
 
   return (
@@ -77,8 +84,10 @@ const Body = () => {
       <div className="res-container">
 
         {/* //RestaurantCard :- since it will be reused again and again*/}
-        <RestaurantCard name="Meghana Foods" />
-        {RestaurantCard({ name: "KFC" })}
+        <RestaurantCard resName="Meghana Foods" cuisine="Biryani, North Indian, Asian" />
+
+        {/* //using normal JS function syntax */}
+        {RestaurantCard({ resName: "KFC", cuisine: "Burger, Fast food" })}
 
       </div>
     </div>
