@@ -196,9 +196,12 @@ const resObj = {
 
 
 
+//********************************************************************************************************************************************************************************************************************************************************************************************************************************* */
 
 
-//Receiving props (passed as a JSON object directly) inside Component
+
+
+// 5) Receiving props (passed as a JSON object directly) inside Component
 
 // ==> the JSON object passed will be received inside the first parameter of the component as props
 // ==> props would be an object inside which there would be another object 
@@ -214,8 +217,20 @@ const resObj = {
 
 // ==>  we destructure it directly in form of an object (name should be same as the name of the key used while passing)
 
-// const {abc} = props; 
+// const { abc } = props; 
 // abc ==>  < RestaurantCard  abc = {resData} />
+
+
+//Now we can use the properties of 'abc' object using dot '.' operator 
+
+
+
+//*********************************************************************************************************************************************************************************************************************************************************************** */
+
+
+
+
+// 6) Double Destructuring :-
 
 //Since 'abc' is an object in itself, if we have properties inside 'abc' as further objects
 // We can destructure "abc" further.
@@ -273,14 +288,13 @@ const RestaurantCard5 = (props) => {
 
 
 
-
-
 //***************************************************************************************************************************************************************************************************************************************************************************************** */
 
-//5) Using map for array of objects :-
+// 7) Using map for array of objects :-
 
 
-// Every index in
+// Every index in the array contains an object containing the dynamic data of a separate component.
+
 //If we get an array of obejcts as JSON, then instead of making same components again and again manually in our file one by one and passing data dynamically
 
 //We can use map to loop in the JSON array and create our components using the loop.
@@ -292,10 +306,9 @@ const RestaurantCard5 = (props) => {
 
 <div className="res-container">
 
-  {/* //RestaurantCard :- since it will be reused again and again*/}
-  <RestaurantCard resName="Meghana Foods" cuisine="Biryani, North Indian, Asian" />
-
-  {/* //using normal JS function syntax */}
-  {RestaurantCard({ resName: "KFC", cuisine: "Burger, Fast food" })}
-
 </div>
+
+
+
+
+// 1:22:00
