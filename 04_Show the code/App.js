@@ -51,9 +51,8 @@ const styleCard = {
 
 
 const RestaurantCard = (props) => {
-
   //Destructuring props 
-  const { resName, cuisine } = props;
+  const { resData } = props;
 
   return (
 
@@ -61,13 +60,68 @@ const RestaurantCard = (props) => {
     <div className="res-card" style={styleCard}>
       <img className="res-logo"
         src="https://th.bing.com/th/id/OIF.EpiMfKFDBcJFMWHPCIPU8A?w=319&h=180&c=7&r=0&o=5&pid=1.7" alt="restaurant-logo" srcset="" />
-      <h3>{resName}</h3>
-      <h4>{cuisine}</h4>
+      <h3>{resData.resName}</h3>
+      <h4>{resData.cuisine}</h4>
       <h4>4.4 stars</h4>
       <h4>38 minutes</h4>
     </div>
   )
 }
+
+
+const resList = [
+  {
+    resName: "KFC",
+    cuisine: ["Burger", "Fried Food"],
+    stars: "3.9⭐",
+    costForTwo: 40000
+  },
+  {
+    resName: "Gupta Brothers",
+    cuisine: ["South Indian", "Fast Food"],
+    stars: "4.1⭐",
+    costForTwo: 30000
+  },
+  {
+    resName: "Alishan",
+    cuisine: ["Biryani", "Chicken-items"],
+    stars: "4.0⭐",
+    costForTwo: 30000
+  },
+  {
+    resName: "Santa Delivers",
+    cuisine: ["North Indian", "Fast Food", "Chinese"],
+    stars: "4.2⭐",
+    costForTwo: 60000
+  },
+  {
+    resName: "Pizza Hut",
+    cuisine: ["Pizza"],
+    stars: "3.5⭐",
+    costForTwo: 80000
+  },
+  {
+    resName: "Chennai Express",
+    cuisine: ["South Indian"],
+    stars: "3.8⭐",
+    costForTwo: 40000
+  },
+  {
+    resName: "6 Ballygunge Place",
+    cuisine: ["Bengali-Food, North Indian"],
+    stars: "4.5⭐",
+    costForTwo: 1500000
+  },
+  {
+    resName: "Kake Di Hatti",
+    cuisine: ["North Indian", "South Indian"],
+    stars: "4.2⭐",
+    costForTwo: 60000
+  }
+]
+
+
+
 
 
 const Body = () => {
@@ -83,12 +137,20 @@ const Body = () => {
       {/* Restaurant Container */}
       <div className="res-container">
 
-        {/* //RestaurantCard :- since it will be reused again and again*/}
-        <RestaurantCard resName="Meghana Foods" cuisine="Biryani, North Indian, Asian" />
+        {
+          // RestaurantCard :- since it will be reused again and again
+          // <RestaurantCard resName="Meghana Foods" cuisine="Biryani, North Indian, Asian" />
 
-        {/* //using normal JS function syntax */}
-        {RestaurantCard({ resName: "KFC", cuisine: "Burger, Fast food" })}
+          //using normal JS function syntax */}
+          // RestaurantCard({ resName: "KFC", cuisine: "Burger, Fast food" })
+        }
+        {
 
+          resList.map((restuarant) => (
+            <RestaurantCard resData={restuarant} />
+          ))
+
+        }
       </div>
     </div>
   )

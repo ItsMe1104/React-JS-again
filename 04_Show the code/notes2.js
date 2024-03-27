@@ -201,11 +201,29 @@ const resObj = {
 //Receiving props (passed as a JSON object directly) inside Component
 
 // ==> the JSON object passed will be received inside the first parameter of the component as props
+// ==> props would be an object inside which there would be another object 
+// ==> Hence, we need to destructure it
+
+/* props ==> 
+{
+  abc : {
+      ...JSON_Object..
+  }
+}
+*/
+
 // ==>  we destructure it directly in form of an object (name should be same as the name of the key used while passing)
 
 // const {abc} = props; 
 // abc ==>  < RestaurantCard  abc = {resData} />
 
+//Since 'abc' is an object in itself, if we have properties inside 'abc' as further objects
+// We can destructure "abc" further.
+
+
+const { def, hij, klm } = abc?.jkl;
+// def, hij, klm ==> are properties
+// The '?' inside is known as optional chaining
 
 // e.g :-
 
@@ -213,22 +231,27 @@ const RestaurantCard5 = (props) => {
 
   const { resData } = props;
 
+  //further destructuring resData
+  const {
+    restaurantId, name, cuisine, deliveryTime, cost
+  } = resData?.data;
+
   return (
     // one restaurant card 
     <div className="res-card">
 
       {/* our required properties are inside another properties named 'data' inside the JSON object*/}
-      <h3> {resData.data.name} </h3>
-      <h3> {resData.data.cuisine.join(", ")} </h3>   //converting cuisine array to cuisine string where elements are separated by comma ','
-      <h3> {resData.data.deliveryTime} </h3>
-      <h3> {resData.data.cost / 100} For TWO</h3>
+      <h3> {restaurantId} </h3>
+      <h3> {name} </h3>
+      <h3> {cuisine.join(", ")} </h3>   //converting cuisine array to cuisine string where elements are separated by comma ','
+      <h3> {deliveryTime} </h3>
+      <h3> {cost / 100} For TWO</h3>
 
     </div>
   )
 }
 
 
-// Till 1:36:00
 
 
 //NOTE :-
@@ -240,3 +263,39 @@ const RestaurantCard5 = (props) => {
 // const str = arr.join("a")
 // a ==> any character
 
+
+
+
+
+//***************************************************************************************************************************************************************************************************************************************************************************************** */
+
+//Cloudinary Image :- Al images are put/hosted in the CDN
+
+
+
+
+
+//***************************************************************************************************************************************************************************************************************************************************************************************** */
+
+//5) Using map for array of objects :-
+
+
+// Every index in
+//If we get an array of obejcts as JSON, then instead of making same components again and again manually in our file one by one and passing data dynamically
+
+//We can use map to loop in the JSON array and create our components using the loop.
+// This concept will help us in making reuseable components
+
+
+//Task :- Loop over this array and create a component with dynamic data one by one using map
+
+
+<div className="res-container">
+
+  {/* //RestaurantCard :- since it will be reused again and again*/}
+  <RestaurantCard resName="Meghana Foods" cuisine="Biryani, North Indian, Asian" />
+
+  {/* //using normal JS function syntax */}
+  {RestaurantCard({ resName: "KFC", cuisine: "Burger, Fast food" })}
+
+</div>
