@@ -248,7 +248,7 @@ const RestaurantCard5 = (props) => {
 
   //further destructuring resData
   const {
-    restaurantId, name, cuisine, deliveryTime, cost
+    restaurantId, cuisine, cost
   } = resData?.data;
 
   return (
@@ -257,9 +257,7 @@ const RestaurantCard5 = (props) => {
 
       {/* our required properties are inside another properties named 'data' inside the JSON object*/}
       <h3> {restaurantId} </h3>
-      <h3> {name} </h3>
       <h3> {cuisine.join(", ")} </h3>   //converting cuisine array to cuisine string where elements are separated by comma ','
-      <h3> {deliveryTime} </h3>
       <h3> {cost / 100} For TWO</h3>
 
     </div>
@@ -290,25 +288,84 @@ const RestaurantCard5 = (props) => {
 
 //***************************************************************************************************************************************************************************************************************************************************************************************** */
 
-// 7) Using map for array of objects :-
+
+// 7) Using map for array of objects in JSON :-
 
 
 // Every index in the array contains an object containing the dynamic data of a separate component.
 
-//If we get an array of obejcts as JSON, then instead of making same components again and again manually in our file one by one and passing data dynamically
+//If we get an array of obejcts as JSON, then instead of making same components again and again manually in our file one by one and passing data dynamically by using JSON array's indexes to get the objects inside it
 
-//We can use map to loop in the JSON array and create our components using the loop.
+/*
+<RestaurantCard resData={resList[0]} />
+<RestaurantCard resData={resList[1]} />
+<RestaurantCard resData={resList[2]} />
+<RestaurantCard resData={resList[3]} />
+*/
+
+
+//We can use map (best industrial practice to use functional programming like map, filter, reduce) to loop in the JSON array and create our components using the loop.
+//This map since written inside JSX, can return JSX also
+//Hence it will return a component tag made using JSX
+
 // This concept will help us in making reuseable components
 
 
 //Task :- Loop over this array and create a component with dynamic data one by one using map
 
 
-<div className="res-container">
 
+//a) While passing props as arguments and creating a component for each object inside JSON array using map:-
+
+/*
+    const resList = [
+    {},
+    {},
+    {}
+  ]
+*/
+
+<div className="res-container">
+  {
+    resList.map((restaurant) => {
+      return <RestaurantCard resData={restaurant} />
+    })
+  }
 </div>
 
 
 
 
-// 1:22:00
+
+//b) While using props under components :-
+// Arguments received will be under an object 
+// Hence 'prop' would contain an object under object
+// Destructure 'prop' with the name of key used for sending props
+// At last from the destructure object, use your required properties using dot operator "."
+
+const RestaurantCard6 = (props) => {
+  const { resData } = props;
+  return (
+    // one restaurant card 
+    <div className="res-card">
+      <h3> {resData.name} </h3>
+      <h4> {resData.cuisine} </h4>
+    </div>
+  )
+}
+
+
+
+
+
+//***************************************************************************************************************************************************************************************************************************************************************************************** */
+
+// NOTE :-
+//Even if we are doing string concatenation that too inside JSX, then we have to put it under curly braces '{}'
+
+//e.g :-
+const RestaurantCard7 = () => {
+  return (
+    <img src={"abcd" + "abc"} alt="" srcset="" />
+  )
+}
