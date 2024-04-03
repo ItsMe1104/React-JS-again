@@ -6,7 +6,7 @@ const Body = () => {
     <div className="body">
       {/* Search Bar */}
       <div className="filter">
-        <button className="filter-btn"> Top Rated Restaurant</button>
+        <button className="filter-btn"> Top Rated Restaurants</button>
       </div>
 
       {/* Restaurant Container */}
