@@ -1,3 +1,9 @@
+// Final Time Question :- Why React is fast?
+// ==> React is fast an efficient in DOM manipulation
+// ==> UI and Data layers work in sync
+
+
+
 //1) Event Handlers :-
 
 // How to add Event Handlers on our elements :-
@@ -9,6 +15,10 @@
 
 //Syntax :-
 // onEvent_name = {callback_function()}
+
+// here the callback_function(), doesn't return anything instead does something like changing of variables, updating UI, etc
+//hence we don't need to use the return keyword
+//Unlike in map(), filter(), reduce(), where the callback functions instead returns something always
 
 
 
@@ -46,76 +56,52 @@
 
 
 
-
 //********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** */
+
+
 
 //2) useState() hook :-
 
 //What are hooks?
-// --> Normal JS functions written by React developers, which gives us various super powers
-// --> Mostly used hooks :- useState(), useEffect()
+// --> Normal prebuilt JS functions written by React developers, which gives us various super powers. These are utility functions given by React, whose code is written inside the react durectory, inside node_modules.
+// --> Mostly used hooks (99% times):- useState(), useEffect()
 
 
+
+
+
+// i) Importing React hooks into our component file
+
+// ==> We always import the React hooks from "react" directory directly without giving any path.
+// ==> We always import them inside object braces as named import, since they have been name exported in their original source files
+// ==> unlike 'react' which has been default imported.
+
+// e.g :-
+import { useState } from "react";
+import { useEffect } from "react";
+import { useState, useEffect } from "react";
+
+
+
+
+// ii) Normal JS variable vs React State Variable
+
+// *) Normal JS variable :-
+// let a = "abc",
+// const abc = [1,true,56];
+
+// *) React State Variable :-
+// ==> These are super powerful variables
+// ==> Can be created by React's useState() hook only
+
+
+
+
+
+
+// useState() hook :-
+// ==> It maintains the state of our component
 
 
 
 //********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** */
-
-// 3) Filtering of lists / cards :-
-
-// We have to filter the cards in UI on happening of an event :-
-
-
-// LOGIC :-
-// since the lists and cards are coming from the list , array of JSON objects, etc
-// If we pass an empty list then, the whole UI will be bank with no cards
-// The UI layer will display what the data layer passes it.
-
-
-// WORK :-
-// hence on the happening of the event ( inside Event Handlers)
-// -->  we must filter the list from where the data is coming
-// --> and then, update / rerender the UI again so that we render the filtered cards
-
-
-
-
-// i) Filtering the list
-
-// ==> Use filter method on the list inside eventListener
-// ==> Apply it to reinitialize the list itself
-// Syntax :- resList = resList.filter(callback())
-
-// e.g :- Filter the list on click of a button
-
-//Note :- the list which we will import cannot be reinitialized using filter, hence we have to copy the list in a separate local variable and then reinitialize that using filter()
-// make sure that we use let ,var and not const to avoid errors 
-
-
-import resList from "./src/utils/mockData";
-
-let restaurantList = resList;
-<button onClick={
-  () => {
-    restaurantList = restaurantList.filter((card) => {
-      return card.data.stars > 4.0;
-    })
-  }
-}>
-  Click Me
-</button>
-
-
-
-
-
-
-
-
-//ii) Updating the UI using useState()
- 
-// first copy the imported list into a local JS variable
-// Declare a local (inside component where it would be used) State variable using useState() hook.
-// Initialize that State variable with the data of the imported list
-// inside the Event Handlers, after filtering the list in the local JS variable, use the set() to update the UI with the filtered list 
-

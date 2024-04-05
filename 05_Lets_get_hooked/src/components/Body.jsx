@@ -4,6 +4,7 @@ import { useState } from "react";
 
 const Body = () => {
   let [listOfRestaurants, setListOfRestaurants] = useState(resList);
+  console.log("Renedered");
   return (
     <div className="body">
       {/* Search Bar */}
@@ -11,15 +12,16 @@ const Body = () => {
         <button
           className="filter-btn"
           onClick={() => {
-            resList = resList.filter((restaurant) => {
+            //FILTER LOGIC
+            filteredList = resList.filter((restaurant) => {
               return restaurant.stars > 4.0;
             });
-
-            setListOfRestaurants(resList);
+            setListOfRestaurants(filteredList);
           }}
         >
           Top Rated Restaurants
         </button>
+        <div>Hi I am DIV</div>
       </div>
 
       {/* Restaurant Container */}
