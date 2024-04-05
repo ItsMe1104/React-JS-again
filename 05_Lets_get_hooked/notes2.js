@@ -75,7 +75,7 @@
 // WORK :-
 // hence on the happening of the event ( inside Event Handlers)
 // -->  we must filter the list from where the data is coming
-// --> and then, rerender the UI again so that we render the filtered cards
+// --> and then, update / rerender the UI again so that we render the filtered cards
 
 
 
@@ -84,17 +84,38 @@
 
 // ==> Use filter method on the list inside eventListener
 // ==> Apply it to reinitialize the list itself
-// Syntax :-  resList.filter(callback())
+// Syntax :- resList = resList.filter(callback())
 
 // e.g :- Filter the list on click of a button
 
+//Note :- the list which we will import cannot be reinitialized using filter, hence we have to copy the list in a separate local variable and then reinitialize that using filter()
+// make sure that we use let ,var and not const to avoid errors 
+
+
+import resList from "./src/utils/mockData";
+
+let restaurantList = resList;
 <button onClick={
   () => {
-    resList = resList.filter((card) => card.data.stars > 4.0);
+    restaurantList = restaurantList.filter((card) => {
+      return card.data.stars > 4.0;
+    })
   }
 }>
   Click Me
 </button>
 
 
+
+
+
+
+
+
+//ii) Updating the UI using useState()
+ 
+// first copy the imported list into a local JS variable
+// Declare a local (inside component where it would be used) State variable using useState() hook.
+// Initialize that State variable with the data of the imported list
+// inside the Event Handlers, after filtering the list in the local JS variable, use the set() to update the UI with the filtered list 
 

@@ -11,12 +11,7 @@ const RestaurantCard = (props) => {
   return (
     // one restaurant card
     <div className="res-card" style={styleCard}>
-      <img
-        className="res-logo"
-        src={resData.image_src}
-        alt="restaurant-logo"
-        srcset=""
-      />
+      <img className="res-logo" src={resData.image_src} alt="restaurant-logo" />
       <h3>{resData.resName}</h3>
       <h4>{resData.cuisine.join(", ")}</h4>
       <h4>{`${resData.stars}⭐`}</h4>
