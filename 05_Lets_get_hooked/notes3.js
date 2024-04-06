@@ -102,3 +102,129 @@ const Body = () => {
     </button>
   );
 }
+
+
+
+
+
+//*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** */
+
+//Updating UI (normal Browser DOM using JS vs React)
+
+// ==> Normally during any update in te UI, Browser has to repaint the entire DOM
+// ==> This takes a huge hit and makes our website slow on continuous updations like in animations or conitunuous chatting
+
+
+
+// In React
+// ==> React uses something known as RECONCILIATION ALGORITHM also known as REACT FIBRE which came in from REACT 16.
+
+
+
+
+// ==> React creates a VIRTUAL DOM out of the Actual DOM
+// ==> Actual DOM is like a tree like representation of the actual tags in our HTML document
+// ==> Virtual DOM is not an actual DOM, it is the representation of the actual DOM
+// ==> It is the representation of DOM in terms nested of React Elements i.e nested JS objects
+// ==> React keeps a track of the whole UI in the form of virtual DOM
+
+
+
+
+// ==> Whenever a State Variable is Updated , the whole component along with its child component is re-Rendered and a new and updated Virtual DOM that is created.
+// ==> Hence, Rerendering so many components doesnt mean they are actually updated directly in the DOM from scratch.
+// ==> There is a Diff Algorithm which finds out the difference between old Virtual DOM and updated Virtual DOM
+// ==> It will calculate the difference and then update the actual DOM only in the required parts.
+// ==> The React Fibre is a new way of finding the Diff and updating the DOM
+
+// ==> Finding out the difference between two JS objects is faster than finding the difference between two HTML codes, since JS is faster
+
+
+
+// 4 rules of Reconciliation :-
+
+// ==> a) While comparing two Component trees, whenever React gets two elements with different types / tags, it will tear down the entire tree below it and built one up from scratch
+
+/*
+*Tree1 :-
+<div>
+  <Counter />
+</div>
+
+
+
+*Tree2 :-
+<span>
+  <Counter />
+</span>
+
+Hence, React will tear down the entire <Counter /> component will completely be updated in the actual DOM from scratch as its parent elements were different
+*/
+
+
+
+
+// ==> b) Whenever two DOM elements of same type are encountered, React will keep the same underlying DOM and only update the attributes that changed.
+
+/*
+*Element 1
+<div className = "before" title = "stuff" />
+
+*Element 2
+<div className = "after" title = "stuff" />
+
+Hence React will only update the attribute.
+*/
+
+
+
+// ==> c) Whenever comparing two same components among two trees, React will keep the same component instance and just update the props passed to it.
+/*
+*Component 1
+<Welcome
+ name = "Bob"
+ age = {35}
+ message = "Hello there"
+ />
+
+*Element 2
+<Welcome
+ name = "Alice"
+ age = {35}
+ message = "Hello there"
+ />
+
+
+Hence React will only update the props.
+*/
+
+
+// ==> d) Whenever comparing two lists components as chioldren
+// i) --> If we add a new list item at the end of the list, React will start comparing from first list item in both trees at the same position (1 with 1 , 2 with 2) and recognize that all are the same, hence it just inserts the new item at the bottom
+
+// ii) --> If we add a new list item at the start of the list, React will compare the items from start and find that at the same position and finds they are all different and hence generates a new tree.
+//This is not what we want, hence we must pass unique keys to every list item, which helps React know which elements are still same and which are new, hence update only the new elements at their specific position in the actual DOM
+
+
+
+
+
+
+// SOME POINTS :-
+// ==> Virtual DOM as concept existed before React
+// ==> React built its core Algorithm over the virtual DOM
+// ==> React's core algorithm is to find the difference between virtual DOMs efficiently and update the UI
+
+
+
+
+
+//Render :-
+//==> Process through which the components defined by the programmer gets broken down into React elements (JS objects), gets attached in the virtual DOM and updated into the actual DOM so that we get the actual UI
+
+
+
+//Re-rendering :-
+//==> Whenever a STATE varible gets modified, React refreshes the component (along with child components). This is called Re-RENDERING. It then, uses the reconciliation to update the actual DOM and the UI with minimum efforts.
+
+// ==> Whenever, a STATE variable updates, React will rerenders the whole component in which the State variable is present.
