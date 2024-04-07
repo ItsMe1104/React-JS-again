@@ -144,7 +144,10 @@ const [listOfRestaurants] = useState([1, 2, 3]);
 //Actual Syntax :-
 // const [a,b] = useState(initial_value)
 // a => State variable name
-// b => function_name to modify the variable
+// b => function_name to modify the variable (// ==> very important, to triggger to start the diff algo by React and update the UI)
+// this const is not for 'a' or 'b', hence we can safely update the value of 'a'
+
+
 
 //Convention of naming 'b' above
 // ==> Can be given any name but
@@ -157,6 +160,24 @@ const [listOfRestaurants] = useState([1, 2, 3]);
 
 //e.g :-
 const [age, setAge] = useState(24);
+
+
+
+
+// This weird syntax is nothing but Array Destructuring done on the fly. 
+// UseState() returns an array , which we try to destructure on th fly
+// Simple syntax :-
+
+const arr = useState("initial_value")
+const [a, b] = arr;
+
+// or 
+const arr2 = useState("initial_value")
+let a2 = arr[0];     //a2 state variable name 
+let b2 = arr[1];     //b2 is the set() to modify a2
+
+// hence this const was for the 'arr'  and not for the destructured elements inside it
+
 
 
 

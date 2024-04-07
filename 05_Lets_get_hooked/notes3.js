@@ -208,6 +208,13 @@ Hence React will only update the props.
 
 
 
+// Q) Why does it compare the virtual DOMs?
+// ==> The virtual DOM is kept in memory as well as a React element has much less properties than a normal HTML element, hence it is much faster to compare React elements than HTML elements.
+// ==> Both React and HTML elements are treated as objects by JS at the end of the day.  Use 'console.dir()' to see yourself
+
+
+
+
 
 
 // SOME POINTS :-
