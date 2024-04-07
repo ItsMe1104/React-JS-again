@@ -3,7 +3,7 @@ import resList from "../utils/mockData";
 import { useState } from "react";
 
 const Body = () => {
-  let [listOfRestaurants, setListOfRestaurants] = useState(resList);
+  const [listOfRestaurants, setListOfRestaurants] = useState(resList);
   console.log("Renedered");
   return (
     <div className="body">
