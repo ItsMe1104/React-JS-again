@@ -7,7 +7,7 @@ const Body = () => {
   console.log("Renedered");
   return (
     <div className="body">
-      {/* Search Bar */}
+      {/* Filter 4.0+ Restaurants */}
       <div className="filter">
         <button
           className="filter-btn"
