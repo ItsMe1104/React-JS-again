@@ -137,10 +137,10 @@ All the commands we write in our local ( npm install,  npm parcel, etc ) will al
 
 /*
 7) Compatibility for older browsers
- // --> we will use browserslist package from node_modules which comes by default under parcel
+ --> we will use browserslist package from node_modules which comes by default under parcel
 
 
-// --> we have to tell our project in what browsers our apps should be supported in
+--> we have to tell our project in what browsers our apps should be supported in
 
 
 IN package.json add a key-value pair at the last
@@ -159,10 +159,10 @@ i) "last 2 Chrome versions" = it will 100% work in latest two Chrome version, it
 
 ii) "last 2 versions" = it will 100% work in latest two versions of all browsers
 
-//NOTE :- govt websites should work in the oldest of browsers even hence use "last 10 versions"
+NOTE :- govt websites should work in the oldest of browsers even hence use "last 10 versions"
 
 
-//NOTE :- more versions we define, more extra code by parcel is incorporated inside bundles, which make our app more heavy
+NOTE :- more versions we define, more extra code by parcel is incorporated inside bundles, which make our app more heavy
 
 
 */
