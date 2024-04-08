@@ -1,3 +1,5 @@
+import React from "react";
+
 // style for restaurant card
 const styleCard = {
   backgroundColor: "#f0f0f0",

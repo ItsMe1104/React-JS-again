@@ -21,7 +21,6 @@ const Body = () => {
         >
           Top Rated Restaurants
         </button>
-        <div>Hi I am DIV</div>
       </div>
 
       {/* Restaurant Container */}
