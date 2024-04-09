@@ -42,4 +42,20 @@
 
 
 
-// 
+
+// There are two approaches how webapps fetch the data from backend
+
+
+// 1) Approach 1 (POOR UX) :- When our app loads, we make an API call and we wait till we get back the data and then we render the UI
+//   LOADS --> API ---> Render
+
+
+// 2) Approach 2 (Better UX) :- )When our app loads, we will render our UI, then we make an API call and as soon as we get back the data from API, we will now rerender our app with the new data
+//    LOADS --> Render (skeleton) --->  API  ----> Render (with actual data)
+
+
+
+
+// NOTE :- In REACT we always use the second approach, even though we overcomplicated the process
+// Reason :- Better UX as the user can atleast see the skeleton on the page and then slowly the website loads
+// React has one of the best and fast render mechanisms with very fast render cycles and hence we dont bother about an extra render
