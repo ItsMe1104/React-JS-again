@@ -1,11 +1,41 @@
 import RestaurantCard from "./RestaurantCard";
 import resList from "../utils/mockData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import React from "react";
 
 const Body = () => {
-  const [listOfRestaurants, setListOfRestaurants] = useState(resList);
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+
+  useEffect(() => {
+    // fetchData();    Swiggy's api is not public hence using mock data
+
+    fetchMockData();
+  }, []);
+
+  //Swiggy doesn't provide a public API for accessing their data. They do not officially expose an API for third-party use.
+
+  /* const fetchData = async () => {
+        const data = await fetch(
+          "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.51800&lng=88.38320&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+     );
+
+        const json = await data.json();
+        console.log(json);
+   };
+ */
+  //Hence, using mockData only for now
+
+  const fetchMockData = () => {
+    //using setTimeout just to give a 5 second delay as if we are fetching data from an api
+
+    setTimeout(() => {
+      setListOfRestaurants(resList);
+    }, 500);
+  };
+
+  if (listOfRestaurants.length === 0)
+    return <h1>Loading ...</h1>;
 
   return (
     <div className="body">

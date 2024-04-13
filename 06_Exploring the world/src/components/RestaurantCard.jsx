@@ -1,7 +1,7 @@
 import React from "react";
 
 const styleCard = {
-  backgroundComor: "#f0f0f0",
+  backgroundColor: "#f0f0f0",
 };
 
 const RestaurantCard = (props) => {
