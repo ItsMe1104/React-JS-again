@@ -18,6 +18,7 @@ const Header = () => {
             <li className="item">About Us</li>
             <li className="item">Contact Us</li>
             <li className="item">Cart</li>
+            <button className="login">Login</button>
           </ul>
         </div>
       </div>

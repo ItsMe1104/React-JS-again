@@ -1,5 +1,6 @@
 import RestaurantCard from "./RestaurantCard";
 import resList from "../utils/mockData";
+import Shimmer from "./Shimmer";
 import { useEffect, useState } from "react";
 
 import React from "react";
@@ -34,10 +35,19 @@ const Body = () => {
     }, 500);
   };
 
-  if (listOfRestaurants.length === 0)
-    return <h1>Loading ...</h1>;
+  /* Conditional Rendering :-
+    if (listOfRestaurants.length === 0) {
+      For Loader...
+      return <h1>Loading ...</h1>;
 
-  return (
+
+      For Shimmer UI...
+      return (<Shimmer />)
+  }
+  */
+
+  // Using ternary operator instead of if-else conditional rendering 
+  return listOfRestaurants.length === 0 ? <Shimmer /> : (
     <div className="body">
       <div className="filter">
         <button
