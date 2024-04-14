@@ -1,7 +1,7 @@
 //Improving the UX during step 2 of:-
 //LOADS --> RENDER --> API --> RENDER
 
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 
 // Since the component will render with empty list hence there will be an empty page till the time the second Render is called
@@ -160,3 +160,61 @@ const Body1 = () => {
 
 
 // Why do we need local State variables instead of normal variables?
+// On getting changed using set(), state variables also refresh / rerender the component so that the new value of that variable is updated in the UI
+
+
+
+
+
+
+//************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************ */
+
+
+
+// 3) SEARCH FUNCTIONALITY :-
+
+// ==> Have an input box and a search button
+// ==> whatever word we search in the input box and click on search button, we should get back those cards whose name includes the word / words we searched for
+
+
+//Steps :-
+// ==> Since our cards are managed by our list
+// ==> Hence just like while filtering top rated restaurants, if we can just filter our list with only those cards which includes the searched words, then we could get the our required restaurants
+
+
+
+
+// 1) Getting the searched word from the input box
+// ==> to get the value of the text entered in the input box
+
+
+//a) add a 'value' attribute to the input box
+
+//b) create a new local state variable and initialize it with empty string. Now bind it with the value attribute with the help of braces '{}', since we will use JS variable inside jsx
+
+/*
+const [searchText, setSearchText] = useState("");
+< input type="text" value={searchText} />
+*/
+
+// Note :- Now whatever we type we cannot see in the input field
+// ==> because the value attribute of the input field is binded with the new local State variable, and since it is empty from beginning, we cannot change the value of the input field even if we type.
+
+
+
+//c) To solve this problem, add a onChange{} handler in the input tag and at every change try to update the local variable with the entered text in the input field with the help of event object
+// How to get the text entered till now in input field
+// ==> Use "e.target.value" to get whatever text is present in the input field till that exact moment
+
+const [searchText, setSearchText] = useState("");
+
+< input type="text" value={searchText}
+  onChange={(e) => {
+    setSearchText(e.target.value);
+  }} />
+
+
+
+
+
+

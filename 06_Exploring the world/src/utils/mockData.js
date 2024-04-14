@@ -118,7 +118,7 @@ const resList = [
     cuisine: ["Snacks", "Burgers", "Fried Food"],
     stars: 4.7,
     costForTwo: 25000,
-    image_src: "https://th.bing.com/th/id/OIP.h-ndJRYl8n3HGcgaud9OwAHaE8?rs=1&pid=ImgDetMain"
+    image_src: "https://i0.wp.com/www.atbp.ph/wp-content/uploads/2016/06/img_576759c5abb69.jpg?fit=1920%2C1080&ssl=1"
   },
   {
     id: 112,
@@ -126,7 +126,7 @@ const resList = [
     cuisine: ["Continental"],
     stars: 3.7,
     costForTwo: 100000,
-    image_src: "https://th.bing.com/th/id/OIP.h-ndJRYl8n3HGcgaud9OwAHaE8?rs=1&pid=ImgDetMain"
+    image_src: "https://th.bing.com/th/id/OIP.cOiUqe84m90EJQ1-VSy9swHaE8?rs=1&pid=ImgDetMain"
   }
 ]
 

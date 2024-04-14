@@ -2,11 +2,13 @@ import RestaurantCard from "./RestaurantCard";
 import resList from "../utils/mockData";
 import Shimmer from "./Shimmer";
 import { useEffect, useState } from "react";
-
 import React from "react";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const [searchWord, setSearchWord] = useState("")
+
+
 
   useEffect(() => {
     // fetchData();    Swiggy's api is not public hence using mock data
@@ -50,6 +52,16 @@ const Body = () => {
   return listOfRestaurants.length === 0 ? <Shimmer /> : (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          <input type="text" className="search-box" value={searchWord} onChange={(e) => {
+            setSearchWord(e.target.value)
+          }} />
+          <button className="search-btn" onClick={() => {
+            //Filter the restaurant cards and update the list
+            filteredList = listOfRestaurants.filter((restaurant) => { return restaurant.resName.includes(searchWord) })
+            setListOfRestaurants(filteredList);
+          }}>Search</button>
+        </div>
         <button
           className="filter-btn"
           onClick={() => {
