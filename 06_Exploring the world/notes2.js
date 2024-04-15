@@ -176,6 +176,11 @@ const Body1 = () => {
 // ==> Have an input box and a search button
 // ==> whatever word we search in the input box and click on search button, we should get back those cards whose name includes the word / words we searched for
 
+<>
+  <input type="text" />
+  <button></button>
+</>
+
 
 //Steps :-
 // ==> Since our cards are managed by our list
@@ -190,20 +195,24 @@ const Body1 = () => {
 
 //a) add a 'value' attribute to the input box
 
-//b) create a new local state variable and initialize it with empty string. Now bind it with the value attribute with the help of braces '{}', since we will use JS variable inside jsx
+//b) VVI :- create a new local state variable and initialize it with empty string. Now bind it with the value attribute with the help of braces '{}', since we will use JS/React variable inside jsx
 
 /*
 const [searchText, setSearchText] = useState("");
+
 < input type="text" value={searchText} />
 */
 
+
 // Note :- Now whatever we type we cannot see in the input field
-// ==> because the value attribute of the input field is binded with the new local State variable, and since it is empty from beginning, we cannot change the value of the input field even if we type.
+// ==> because the 'value' attribute of the input field is binded with the new local State variable which is already empty, hence, till that local State variable is empty we cannot change the value of the input field even if we type.
 
 
 
-//c) To solve this problem, add a onChange{} handler in the input tag and at every change try to update the local variable with the entered text in the input field with the help of event object
-// How to get the text entered till now in input field
+
+//c) To solve this problem, we add an onChange{} handler in the input tag and at every change try to update the local variable with the total entered text (till that point) in the input field with the help of event object
+
+// Q) How to get the text entered till now in input field
 // ==> Use "e.target.value" to get whatever text is present in the input field till that exact moment
 
 const [searchText, setSearchText] = useState("");
@@ -214,7 +223,158 @@ const [searchText, setSearchText] = useState("");
   }} />
 
 
+// Hence, at Last, after the user has typed the whole text in the input box, the local Variable will have the whole text as its valu
+
+
+
+//NOTE :-
+// ==> Hence, now for every time we type in the input box
+// ==> the set() to set the local State variable will be called inside onChange = {}
+// ==> React will trigger its reconcilliation process for every letter we type , but the algorithm is so efficient , we dont feel anything
 
 
 
 
+
+
+// 2) Using the updated Searched word to filter the list
+
+//==> Get an onClick={} handler in the search button
+//==> Inside it define a callback function such that the list gets filtered using filter()
+
+// ==> Use the filter method to only include those elements in the list whose name includes the search word
+// ==> Use the .includes() for finding if a string contains a particular word or not.
+
+// ==> Update the list to the filtered list using useState() like we did while searching the top rated resturants
+
+/*
+
+<button onClick={
+  ()=>
+  {
+
+    //**** Filter the restaurant cards
+    const filtered_list = listOfRestaurants.filter((restaurants)=>
+      {
+        return restaurants.resName.includes(searchText);
+      }
+    )
+
+    //**** update the UI
+    setListofRestaurants(filteredList);
+  }
+}></button>
+
+*/
+
+
+
+//**************************************************************************************************************************************************** */
+
+
+
+//PROBLEMS with above ALGO :-
+
+
+// 1) What if the the search text "case" does not match with the "case" in the list's element even if the searched word is present
+
+// ==> convert both of them to a particular case using .toLowerCase()
+// ==> Then, do the filtering
+
+/*
+
+<button onClick={
+  ()=>
+  {
+
+    //**** Filter the restaurant cards
+    const filtered_list = listOfRestaurants.filter((restaurants)=>
+      {
+        return restaurants.resName.toLowerCase().includes(searchText.toLowerCase());
+      }
+    )
+
+    //**** update the UI
+    setListofRestaurants(filteredList);
+  }
+}></button>
+
+*/
+
+
+
+
+
+
+
+// 2) For the first search it will work, but then from the next search our code will break
+
+//Reason :- Once we have searched one item, our original list got filtered to a lesser search space and hence the second search will have to within those lesser elements let in the original list
+
+//e.g :- if after first search our list got updated to two items, hence our next search will have to be within those two items only, since our original list got updated
+
+
+
+//Solve the error :-
+// ==> Maintain a new State variable which will always be used to render in the UI
+// ==> Initialize it as empty just like our original List
+// ==> Use this list to render all the cards / etc in the UI instead of original List
+
+const [newList, setNewList] = useState([]);
+
+// ==> Now update it with original data from API inside useEffect() jut when we update our original list with the API data
+
+// ==> The original list will always be used to calculate the filtered list (always) whether while searching or top rated filters, etc
+// ==> The new list will be used to render the filterd list in the UI (always)
+
+// eg :-
+
+
+
+const Body3 = () => {
+
+  const [originalList, setOriginalList] = useState([]);
+  const [newList, setNewList] = useState([]);
+
+  useEffect(() => {
+
+    //fetch data
+    setOriginalList(fetchedData);
+    setNewList(fetchedData);
+  }, [])
+
+
+
+  return (
+    <>
+
+      {/* Search Functionality  */}
+
+      <button onClick={() => {
+        //Calculate the filtered list using original List variable
+        filteredList = originalList.filter(
+          (restaurant) => {
+            return restaurant.resName.includes(searchWord)
+          })
+
+        //Update UI using newList variable
+        setNewList(filteredList)
+      }}> Search </button>
+
+
+
+      {/* Top Rated Functionality */}
+
+      <button onClick={() => {
+        //Calculate the filtered list using original List variable
+        filteredList = listOfRestaurants.filter((restaurant) => {
+          return restaurant.stars > 4.0;
+        });
+
+        //Update UI using newList variable
+        setNewList(filteredList);
+
+      }}></button>
+    </>
+  )
+}

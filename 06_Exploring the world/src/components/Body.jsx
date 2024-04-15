@@ -6,6 +6,8 @@ import React from "react";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const [newList, setNewList] = useState([]);
+
   const [searchWord, setSearchWord] = useState("")
 
 
@@ -33,7 +35,10 @@ const Body = () => {
     //using setTimeout just to give a 5 second delay as if we are fetching data from an api
 
     setTimeout(() => {
+
       setListOfRestaurants(resList);
+      setNewList(resList);
+
     }, 500);
   };
 
@@ -56,10 +61,17 @@ const Body = () => {
           <input type="text" className="search-box" value={searchWord} onChange={(e) => {
             setSearchWord(e.target.value)
           }} />
+
           <button className="search-btn" onClick={() => {
-            //Filter the restaurant cards and update the list
-            filteredList = listOfRestaurants.filter((restaurant) => { return restaurant.resName.includes(searchWord) })
-            setListOfRestaurants(filteredList);
+            //Filter the restaurant cards
+            filteredList = listOfRestaurants.filter(
+              (restaurant) => {
+                return restaurant.resName.toLowerCase().includes(searchWord.toLowerCase())
+              }
+            )
+
+            //update the UI
+            setNewList(filteredList);
           }}>Search</button>
         </div>
         <button
@@ -69,7 +81,7 @@ const Body = () => {
               return restaurant.stars > 4.0;
             });
 
-            setListOfRestaurants(filteredList);
+            setNewList(filteredList);
           }}
         >
           Top Rated Restaurants
@@ -78,7 +90,7 @@ const Body = () => {
 
       {/* Restaurant Container */}
       <div className="res-container">
-        {listOfRestaurants.map((restaurant) => {
+        {newList.map((restaurant) => {
           return (
             <RestaurantCard
               key={restaurant.id}
