@@ -12,8 +12,6 @@ const App = () => {
   )
 }
 
-export default App
-
 
 
 const div = document.getElementById("root");
