@@ -4,6 +4,7 @@ import Shimmer from "./Shimmer";
 import ShimmerLoad from "./ShimmerLoad";
 import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component"
+
 import React from "react";
 
 const Body = () => {
@@ -38,6 +39,8 @@ const Body = () => {
 
   const nextFive = () => {
     setTimeout(() => {
+
+      console.log("called");
       const endIndex = Math.min(currentIndex + 6, new_filteredList.length);
 
       const nextElements = new_filteredList.slice(0, endIndex);

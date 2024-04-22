@@ -82,8 +82,99 @@ useEffect(() => {
 //d) Create routing configuration :-
 //  configuration :- info which will define what will happen on a specific route/path
 
-//Syntax :-
+//Syntax (Developing a router) :-
 //  const appRouter = createBrowserRouter(a);
 // --> a = list of paths
-// --> path is an object with two key-value pairs (path and element)
+// --> path is an object with two compulsary key-value pairs (path and element)
 
+// path : "/page_name"
+// element : Component for that page (Make sure it is already imported in App.js for using it)
+
+[
+  {
+    path: "/",
+    element: <App />
+  },
+  {
+    path: "/about",
+    element: <About />
+  }
+]
+
+
+//Whole Syntax :-
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />
+  },
+  {
+    path: "/about",
+    element: <About />
+  }
+])
+
+
+
+
+// e) Rendering the Configuration :-
+//==> Once the configuration is created it should be provided to render
+
+//**** import "RouterProvider" also as named import from "react-router-dom"
+
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
+
+// ==> This RouterProvider is a component give by react-router-dom
+// ==> It provides the routing configuration to our app
+
+
+//****   Now instead of rendering <App> or <AppLayout> directly inside root.render()
+//****   We will reder <RouterProvider> component
+//****   it will have an attribute named as 'router' which will take the value of our appRouter that we created
+//****   since our appRouter is a JS variable, it will come inside curly braces
+
+root.render(<RouterProvider router={appRouter} />)
+
+
+
+
+//NOTE :- There are different types of routers that reactRouter.com provides us
+// ==> But react personally says that "createBrowserRouter" is the recommended router for react projects
+
+
+
+
+//*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+
+
+//4) Error Handling in routing :-
+
+// ==> What if someone entered a random URL path which was not specified in the list of paths that we gave.
+// ==> It should show a 404 error (unexpected Application Error)
+// ==> react-router-dom itself handles the error and creates an error page for you
+// ==> we can also create our own error page like "Oops something went wrong"
+
+
+//To give our desired Error page while routing to a random URL
+
+// ==> create a Error component which will show the error page
+// ==> In the list of paths, in the first element which gives the path to our <App /> component when we use "/"
+// Always use it only in the first element as <App /> component is our main component
+// ==> Just add an extra key-value pair :-
+errorElement: <Error />
+
+
+
+// i.e :-
+
+[
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <Error />
+  },
+  {
+    path: "/about",
+    element: <About />
+  }
+]
