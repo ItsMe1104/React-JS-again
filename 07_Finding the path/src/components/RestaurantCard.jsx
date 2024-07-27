@@ -14,7 +14,7 @@ const RestaurantCard = (props) => {
       <h3>{resData.resName}</h3>
       <h4>{resData.cuisine.join(", ")}</h4>
       <h4>{`${resData.stars}⭐`}</h4>
-      <h4>38 minutes</h4>
+      <h4>{resData.deliveryTime}</h4>
     </div>
   );
 };

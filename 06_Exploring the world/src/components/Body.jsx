@@ -3,12 +3,14 @@ import resList from "../utils/mockData";
 import Shimmer from "./Shimmer";
 import { useEffect, useState } from "react";
 import React from "react";
+import ShimmerLoad from "./ShimmerLoad";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [newList, setNewList] = useState([]);
-
   const [searchWord, setSearchWord] = useState("")
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [showShimmer, setShowShimmer] = useState(true);
 
 
 
@@ -16,8 +18,16 @@ const Body = () => {
     // fetchData();    Swiggy's api is not public hence using mock data
 
     fetchMockData();
+
   }, []);
 
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  })
   //Swiggy doesn't provide a public API for accessing their data. They do not officially expose an API for third-party use.
 
   /* const fetchData = async () => {
@@ -31,17 +41,39 @@ const Body = () => {
  */
   //Hence, using mockData only for now
 
+
   const fetchMockData = () => {
     //using setTimeout just to give a 5 second delay as if we are fetching data from an api
-
     setTimeout(() => {
 
       setListOfRestaurants(resList);
-      setNewList(resList);
-
+      setNewList(resList.slice(0, 8));
+      setCurrentIndex(8);
+      setShowShimmer(false);
     }, 500);
   };
 
+
+  const handleScroll = () => {
+    if (window.innerHeight + document.documentElement.scrollTop + 0.75 >= document.documentElement.scrollHeight) {
+      setShowShimmer(true);
+      fetchMoreMockData();
+    }
+
+  }
+
+  const fetchMoreMockData = () => {
+    setTimeout(() => {
+      const endIndex = Math.min(currentIndex + 8, resList.length);
+
+      const nextElements = resList.slice(0, endIndex);
+
+      setShowShimmer(false);
+      setNewList(nextElements);
+      setCurrentIndex(endIndex);
+
+    }, 500);
+  }
   /* Conditional Rendering :-
     if (listOfRestaurants.length === 0) {
       For Loader...
@@ -99,6 +131,7 @@ const Body = () => {
           );
         })}
       </div>
+      {showShimmer && <ShimmerLoad />}
     </div>
   );
 };

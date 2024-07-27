@@ -59,10 +59,10 @@
 
 /* restaurant card */
 .res-card {
-  width: 300px;
+  width: 500px;
   text-align: center;
   padding: 5px;
-  margin: 5px;
+  margin: 22px;
   font-size: 1rem;
 }
 

@@ -4,6 +4,7 @@ import Shimmer from "./Shimmer";
 import ShimmerLoad from "./ShimmerLoad";
 import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component"
+import { Link } from "react-router-dom";
 
 import React from "react";
 
@@ -95,10 +96,12 @@ const Body = () => {
         <div className="res-container">
           {newList.map((restaurant) => {
             return (
-              <RestaurantCard
-                key={restaurant.id}
-                resData={restaurant}
-              ></RestaurantCard>
+              <Link to={"/restaurants/" + restaurant.id} key={restaurant.id}>
+                <RestaurantCard
+
+                  resData={restaurant}
+                ></RestaurantCard>
+              </Link>
             );
           })}
         </div>
