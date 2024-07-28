@@ -2,7 +2,7 @@
 const resList =
   [
     {
-      id: 123,
+      id: 122,
       resName: "KFC",
       cuisine: ["Burger", "Fried Food"],
       stars: 3.9,
@@ -35,7 +35,7 @@ const resList =
     },
 
     {
-      id: 345,
+      id: 347,
       resName: "Gupta Brothers",
       cuisine: ["South Indian", "Fast Food", "Chinese"],
       stars: 4.1,

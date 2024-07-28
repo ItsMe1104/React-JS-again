@@ -22,6 +22,8 @@ const RestaurantMenu = () => {
     }, 500);
   }
 
+
+  //Since, we have the restaurant infos are also integrated in our main API unlike having separate apis for separate restaurants, hence we need to search which restaurant we are searching about and get its index by comparing the 'id' of all restaurants with the given id
   let current_idx = 0;
   if (resInfo === null) return <Shimmer></Shimmer>
   for (let idx = 0; idx < resInfo.length; idx++) {
@@ -31,6 +33,7 @@ const RestaurantMenu = () => {
     }
   }
 
+  const { veg, non_veg } = resInfo[current_idx]?.categories
 
   return (resInfo === null) ? (<Shimmer />) : (
     <div className='menu'>
@@ -49,22 +52,22 @@ const RestaurantMenu = () => {
       <h2>Categories :-</h2>
       <br />
       <h2> Veg :-</h2>
-      {Object.entries(resInfo[current_idx].categories.veg).map(items => {
+      {Object.entries(veg).map((items, idx) => {
 
-        let key = items[0];
+        let key2 = items[0];
         let value = items[1];
 
-        return <h3>{key + " -> " + value}</h3>
+        return <h3 key={resInfo[current_idx].id + idx}>{key2 + " -> " + value}</h3>
       })}
       <br />
 
       <h2> Non-Veg :-</h2>
-      {Object.entries(resInfo[current_idx].categories.non_veg).map(items => {
+      {Object.entries(non_veg).map((items, idx) => {
 
-        let key = items[0];
-        let value = items[1];
+        let key1 = items[0];
+        let value1 = items[1];
 
-        return <h3>{key + " -> " + value}</h3>
+        return <h3 key={resInfo[current_idx].id + idx}>{key1 + " -> " + value1}</h3>
       })}
 
     </div >
