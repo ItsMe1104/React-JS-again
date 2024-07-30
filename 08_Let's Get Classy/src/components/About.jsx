@@ -9,10 +9,10 @@ const About = () => {
       <h2>This is Namaste React</h2>
 
       {/* Functional Component */}
-      <User name={"Hrithik Shaw (function)"} />
+      <User name={"Hrithik Shaw (function)"} location={"Kolkata (function)"} />
 
       {/* Class-Based Component */}
-      <UserClass name={"Hrithik Shaw (class)"} />
+      <UserClass name={"Hrithik Shaw (class)"} location={"Kolkata (class)"} />
     </div>
   )
 }
