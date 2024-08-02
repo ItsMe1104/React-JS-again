@@ -19,6 +19,7 @@ class UserClass extends React.Component {
   }
 
 
+
   async componentDidMount() {
     //API call...
 
@@ -33,11 +34,21 @@ class UserClass extends React.Component {
 
   }
 
+
+
+  componentDidUpdate() {
+    console.log("Component Did Update");
+  }
+
+  componentWillUnmount() {
+    console.log("Component Unmounted");
+  }
+
+
   render() {
 
-    const { count1, count2, userInfo } = this.state;
-
-    const { avatar_url, login, followers, following } = userInfo;
+    // const { count1, count2, userInfo } = this.state;
+    const { avatar_url, login, followers, following } = this.state.userInfo;
 
     return <div className="user-card">
 

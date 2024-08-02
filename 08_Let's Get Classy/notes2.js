@@ -182,7 +182,7 @@ Every child has its own constructor(), render() and componentDidMount() function
 // B) componentDidMount()
 
 // ==> It is called when the component and its children (if any) have already mounted into the webpage
-// ==> Its use is the exact replica of the useEffect() hook in functional components
+// ==> Its use is the exact replica of the useEffect() hook in functional components (but never say it directly in the interviewS)
 // ==> It is majorly used to make API calls
 // ==> We do this because, we follow the approach of
 // Loading --> Rendering components --> API call --> Rendering with data

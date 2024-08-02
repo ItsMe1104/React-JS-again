@@ -46,7 +46,7 @@ const fetchMenu = async () => {
 
 
 
-//********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** */
+//******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** */
 
 
 
@@ -102,3 +102,89 @@ const fetchMenu = async () => {
 }
 
 */
+
+
+
+
+
+//********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** */
+
+
+
+//Life Cycle of Mounting and Updating during API call :-
+
+
+// Terms to know :-
+// --> componentDidUpdate() :- It is called at the end of the UpdateCycle
+// --> componentWillUnmount() :- It will be called just before the component is wiped out from the page (removing from UI) so that some other component is loaded
+
+
+
+// MOUNTING cycle:-
+
+// RENDER PHASE :-
+// Parent constructor() is called
+//   --> State variable was created with some default value
+// Parent render() is called
+//   --> The render() happens with a default value
+
+// COMMIT PHASE :-
+// React updates the DOM with a dummy data
+// Parent componentDidMount() was called
+//   --> Api call was made
+//   --> setState() is called and hence,
+// MOUNTING CYCLE ends, UPDATING CYCLE starts
+
+
+
+// UPDATING cycle :-
+
+// As soon as setState() is called, Updating cycle begins
+
+// RENDER PHASE
+// setState() updates the State variable
+// Parent render() is called again
+//   --> The render() happens with the updated value
+
+
+// COMMIT PHASE :-
+//  React updates the DOM with the updated data
+//  Parent ComponentDidUpdate() will be called
+
+
+
+
+
+// SUMMARY :-
+
+/******
+ *
+ *
+ * ---- MOUNTING ----
+ * Constructor (dummy)
+ * Render (dummy)
+ *      <HTML Dummy>
+ *
+ * ComponentDidMount
+ *      <API Call>
+ *      <this.setState>
+ *
+ *
+ *
+ * ---- UPDATE ----
+ * Render(API data)
+ *      <HTML (new API data)>
+ * ComponentDidUpdate
+ */
+
+
+
+
+
+//********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** */
+
+
+// componentWillUnmount()
+// --> It will be called just before the component is wiped out from the page (getting removed from UI) so that some other component can be loaded
+
+// --> It marks the end of the lifecycle of that component 
