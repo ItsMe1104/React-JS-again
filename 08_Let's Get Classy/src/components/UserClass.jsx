@@ -32,6 +32,10 @@ class UserClass extends React.Component {
       userInfo: json
     })
 
+    this.timer = setInterval(() => {
+      console.log("REACT OP");
+    }, 1000);
+
   }
 
 
@@ -41,6 +45,8 @@ class UserClass extends React.Component {
   }
 
   componentWillUnmount() {
+
+    clearInterval(this.timer);
     console.log("Component Unmounted");
   }
 
