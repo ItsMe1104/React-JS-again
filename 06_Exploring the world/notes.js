@@ -145,9 +145,10 @@ useEffect(() => {
 
 const fetchData = async () => {
   const data = await fetch("https://api.github.com/users/ItsMe1104");
+  const json = await data.json();
 }
 
-const json = await data.json();
+
 
 
 
