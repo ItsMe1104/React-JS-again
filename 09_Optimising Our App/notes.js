@@ -186,3 +186,66 @@ if (onlineStatus === false) return <h1>Look's like you're offline. Please check 
 
 // You can check the performance during offline in developer tools
 // --> Go to network and in the dropdown of 'no throtling' --> select offline.
+
+
+// This is when we can put a dino game, so that the user is engaged on our website till the internet returns
+
+
+
+
+
+//********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+
+
+
+// D) Online Offline symbol for chat :-
+
+// --> When we are online, it will turn green
+// --> When we are offline, it will turn red
+// --> Very useful for chat application
+
+
+// --> In the Header component
+// --> Store the boolean in a variable
+// --> And use a ternary operator in the list item based on the value of that boolean
+
+
+const onlineStat = useOnlineStatus();
+
+return (
+  <div>
+    {/* Navbar-items */}
+    <div className="nav-items">
+      <ul>
+        <li className="item">
+          Online Status : {onlineStat === true ? '🟢' : '🔴'}
+        </li>
+      </ul>
+    </div>
+  </div>
+)
+
+
+
+
+// H.W :- Make a component and design the offline page and render it when the user is offline
+
+
+
+
+
+
+//********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+
+
+// E) Some conventions :-
+// --> It is not mandatory to start the name of the custom hook with 'use' but it is a way of differentiating between React hooks with normal functions
+// --> The reader of the code now knows that it is a custom React hook and will have its own React logic like State, lifecycle, etc
+// --> Neither it is mandatory to start the name of the Component with CAPS
+// --> It is recommended by react official docs and is just used as a convention
+// --> Sometimes in React projects a linter is used which will start throwing errors if the convention is not followed
+
+
+
+
+
