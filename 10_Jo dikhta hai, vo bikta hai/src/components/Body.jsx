@@ -58,13 +58,13 @@ const Body = () => {
 
   return listOfRestaurants.length === 0 ? <Shimmer /> : (
     <div className="body">
-      <div className="filter">
-        <div className="search">
-          <input type="text" className="search-box" value={searchWord} onChange={(e) => {
+      <div className="filter flex ">
+        <div className="search m-4 p-4">
+          <input type="text" className="border border-solid border-black" value={searchWord} onChange={(e) => {
             setSearchWord(e.target.value)
           }} />
 
-          <button className="search-btn" onClick={() => {
+          <button className="px-4 py-1 bg-green-100 m-4 rounded-lg" onClick={() => {
             //Filter the restaurant cards
             const filteredList = listOfRestaurants.filter(
               (restaurant) => {
@@ -78,20 +78,23 @@ const Body = () => {
             setCurrentIndex(12);
           }}>Search</button>
         </div>
-        <button
-          className="filter-btn"
-          onClick={() => {
-            const filteredList = listOfRestaurants.filter((restaurant) => {
-              return restaurant.stars > 4.0;
-            });
+        <div className="flex items-center m-2 p-4">
+          <button
+            className="px-4 py-1 bg-gray-100 rounded-lg"
+            onClick={() => {
+              const filteredList = listOfRestaurants.filter((restaurant) => {
+                return restaurant.stars > 4.0;
+              });
 
-            setNew_filteredList(filteredList);
-            setNewList(filteredList.slice(0, 12));
-            setCurrentIndex(12);
-          }}
-        >
-          Top Rated Restaurants
-        </button>
+              setNew_filteredList(filteredList);
+              setNewList(filteredList.slice(0, 12));
+              setCurrentIndex(12);
+            }}
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
+
       </div>
 
       {/* Restaurant Container */}
