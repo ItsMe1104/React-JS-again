@@ -99,7 +99,7 @@ const Body = () => {
 
       {/* Restaurant Container */}
       <InfiniteScroll dataLength={newList.length} next={nextFive} hasMore={newList.length != new_filteredList.length} loader={<ShimmerLoad />} >
-        <div className="res-container">
+        <div className="flex flex-wrap">
           {newList.map((restaurant) => {
             return (
               <Link to={"/restaurants/" + restaurant.id} key={restaurant.id}>

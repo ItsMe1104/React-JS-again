@@ -202,6 +202,7 @@ module.exports = {
 // Either search for the css tags in the tailwind website or as the initial learning curve of tailwind progresses we will most probably remember all these classNames
 // --> Use the extension :- Tailwind CSS IntelliSense by Tailwind Labs
 // --> We will get tailwind class suggestions, as and when we are writing the code inside className
+// --> If the suggestions automatically don't come, use CTRL+Space
 
 
 
@@ -275,7 +276,9 @@ module.exports = {
 
 
 
+
 // E) Tailwind CSS continued :-
+
 
 // 9) To give round corners to an element
 // --> e.g :- giving a rounded corner to our search button
@@ -287,3 +290,104 @@ module.exports = {
 // lg --> large
 // xl --> extra large
 // 2xl --> double extra large
+// ...
+
+
+
+
+
+
+// 10) Giving 200px exact width to an element :-
+// --> e.g :- giving a 200px width to an image
+// --> we have w-48 --> 192px
+// --> we have w-52 --> 208px
+// --> to give hardcoded 200px value, we have to use []
+// --> className = "w-[200px]"
+
+
+
+
+
+// 11) How to make the elements flex-wrap inside our flexbox
+
+// --> e.g :- making our restaurand card container flex-wrap so that all the restaurant cards do not come horizontally.
+// --> Remember inorder to use flex-wrap, the flex property should be present in our container already
+
+// --> classname = "flex-wrap"
+// --> Total
+// --> className = "flex flex wrap"
+
+
+
+
+
+// 12) How to make the font of an element as BOLD
+// --> e.g :- making the text of an <h1> tag bold
+
+// --> classname = "font-bold"
+
+
+
+
+
+// 13) How to make the font-size of an element large
+// --> e.g :- making the text of an <h1> tag large
+
+// --> classname = "text-xl"
+
+// sm --> small
+// md --> medium
+// lg --> large
+// xl --> extra large
+// 2xl --> double extra large
+// 3xl --> Three times large
+
+
+
+
+
+
+// 14) How to access hover class like the way we use to have pseudo classes in tailwind
+// --> e.g :- when we hover onto some element, it should change the colour to dark gray, etc
+
+// --> classname = "hover:bg-gray-400"
+// --> classname = "hover:text-2xl"
+
+
+
+
+// 15) Media queries
+// sm  --> small devices (mobile phones)
+// md  --> medium devices (tablets)
+// lg  --> large devices (desktops)
+
+// --> Always done for higher side
+// --> Like if my device size is greater than sm, then do something, till "sm" it will have the default written css
+// --> classname = "sm: bg-yellow-50"  (any device greater than sm will have yellow)
+
+
+// --> Like if my device size is greater than lg, then do something
+// --> classname = "lg: bg-yellow-50" (any device greater than lg will have yellow)
+
+
+
+
+// Altogether :-
+classname = "bg-pink-50 sm: bg-yellow-50 lg: bg-green-50"
+
+// means  0 --> sm == pink
+// means sm --> lg == yellow
+// means lg --> end == green
+
+
+
+
+// 16)  Very easy to make the app in dark mode using "dark:"
+// --> e.g :- classname = "text-slate-500 dark:text-slate-400"
+
+
+//********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** */
+
+
+
+
