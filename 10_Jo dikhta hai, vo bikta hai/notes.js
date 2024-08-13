@@ -390,7 +390,27 @@ module.exports = {
 
 
 
-// 20) Media queries
+// 20) To make the width of the component as half of its parent
+// --> e.g :- To make a div take half of the screen
+// --> Tailwing divides the parent into 12 pieces. We can use fraction to determine the width
+
+// --> classname = "w-6/12"
+
+
+
+
+
+// 21) To make an element to come at the centre of its parent
+// --> e.g :- To make a div come at the centre of the screen
+
+// --> className = "m-auto"       (meaning equal margin from all sides)
+
+
+
+
+
+
+// 22) Media queries
 // sm  --> small devices (mobile phones)
 // md  --> medium devices (tablets)
 // lg  --> large devices (desktops)
@@ -416,12 +436,11 @@ classname = "bg-pink-50 sm: bg-yellow-50 lg: bg-green-50"
 
 
 
-// 21)  Very easy to make the app in dark mode using "dark:"
+// 23)  Very easy to make the app in dark mode using "dark:"
 // --> e.g :- classname = "text-slate-500 dark:text-slate-400"
 
 
 //********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** */
-
 
 
 
