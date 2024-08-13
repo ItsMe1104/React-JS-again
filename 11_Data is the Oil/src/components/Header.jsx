@@ -19,7 +19,7 @@ const Header = () => {
 
         {/* Navbar-items */}
         <div className="nav-items flex items-center">
-          <ul className="flex m-4 p-4">
+          <ul className="flex mx-24 my-auto p-4 text-xl font-bold">
             <li className="px-4">
               Online Status : {onlineStat === true ? '🟢' : '🔴'}
             </li>

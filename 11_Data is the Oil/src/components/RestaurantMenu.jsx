@@ -1,6 +1,7 @@
 import Shimmer from './Shimmer';
 import useRestaurantMenu from '../utils/useRestaurantMenu';
 import { useParams } from 'react-router-dom';
+import RestaurantCategory from './RestaurantCategory';
 
 const RestaurantMenu = () => {
 
@@ -21,40 +22,17 @@ const RestaurantMenu = () => {
   }
 
   const { veg, non_veg } = resInfo[current_idx]?.categories
-
+  const categories_name = [["Veg - Food", veg], ["Non Veg - Food", non_veg]]
   return (resInfo === null) ? (<Shimmer />) : (
-    <div className='menu'>
-      <h1>{resInfo[current_idx].resName}</h1>
-      <h3>{resInfo[current_idx].cuisine.join(", ") + " - " + resInfo[current_idx].costForTwo} </h3>
+    <div className='text-center'>
+      <h1 className='font-bold mt-20 mb-6 text-7xl'>{resInfo[current_idx].resName}</h1>
+      <h3 className="font-bold text-4xl mb-28">{resInfo[current_idx].cuisine.join(", ") + " - " + resInfo[current_idx].costForTwo} </h3>
 
-      <br />
-      <h1>Menu</h1>
-      {/*  
-      <ul>
-         {itemsCard.map(item => <li key={ }>{item.category[0]}</li>)} 
-       {itemsCard.map(item => <li key={ }>{item.category[1]}</li>)}  
-    </ul>
-    */}
+      {/* Categories */}
 
-      <h2>Categories :-</h2>
-      <br />
-      <h2> Veg :-</h2>
-      {Object.entries(veg).map((items, idx) => {
+      {Object.entries(resInfo[current_idx]?.categories).map((items, idx) => {
 
-        let key2 = items[0];
-        let value = items[1];
-
-        return <h3 key={resInfo[current_idx].id + idx}>{key2 + " -> " + value}</h3>
-      })}
-      <br />
-
-      <h2> Non-Veg :-</h2>
-      {Object.entries(non_veg).map((items, idx) => {
-
-        let key1 = items[0];
-        let value1 = items[1];
-
-        return <h3 key={resInfo[current_idx].id + idx}>{key1 + " -> " + value1}</h3>
+        return <RestaurantCategory key={idx} type={categories_name[idx]}  ></RestaurantCategory>
       })}
 
     </div >

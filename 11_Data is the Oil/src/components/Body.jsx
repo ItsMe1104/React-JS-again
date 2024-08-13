@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard"
 import resList from "../utils/mockData";
 import Shimmer from "./Shimmer";
 import ShimmerLoad from "./ShimmerLoad";
@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 import React from "react";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
-
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [newList, setNewList] = useState([]);
@@ -16,6 +15,7 @@ const Body = () => {
   const [searchWord, setSearchWord] = useState("")
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
   useEffect(() => {
     // fetchData();    Swiggy's api is not public hence using mock data
@@ -103,10 +103,14 @@ const Body = () => {
           {newList.map((restaurant) => {
             return (
               <Link to={"/restaurants/" + restaurant.id} key={restaurant.id}>
-                <RestaurantCard
 
-                  resData={restaurant}
-                ></RestaurantCard>
+                {
+                  restaurant.promoted === true ? <RestaurantCardPromoted resData={restaurant} /> : <RestaurantCard
+
+                    resData={restaurant}
+                  ></RestaurantCard>
+                }
+
               </Link>
             );
           })}
