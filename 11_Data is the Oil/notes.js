@@ -249,3 +249,19 @@ Object.entries(obj_name).map((item) => {
 
 
 // 7) Accordian Data :-
+
+
+// --> For APIs :-
+// --> Create another component called ItemList.jsx
+// --> Use this component inside the Accordian Header's div only
+// --> Try adjusting using CSS
+// --> Pass the api data of restaurant's menu inside the ItemList.jsx
+// --> Now use the map() to loop and print the food items (name, price, description, image) for each categpry
+// --> Use Tailwing to adjust the CSS
+
+
+
+ 
+// Note :- 
+
+// 1:09:45

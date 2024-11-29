@@ -211,7 +211,7 @@ module.exports = {
 
 
 
-// 6) To give pink-background to an element
+// 6) To give background to an element
 // --> e.g :- giving pink-background to our header
 
 //--> className = "bg-pink-100"
@@ -247,7 +247,39 @@ module.exports = {
 
 
 
-// 9) To give borders to an element
+
+// 9) To make the text alignment as centre horizontally in its parent div 
+// --> e.g :- to make the <h1> tag centrally aligned in a div
+//--> className = "text-center"
+
+
+
+
+
+// 10) To make the text alignment as left horizontally in its parent div 
+// --> e.g :- to make the <h1> tag left-aligned in a div
+//--> className = "text-left"
+
+
+
+
+// 11) To make the text alignment as right horizontally in its parent div 
+// --> e.g :- to make the <h1> tag right-aligned in a div
+//--> className = "text-right"
+
+
+
+
+
+// 12) To make the text bold
+// --> e.g :- to make the text inside <h1> tag bold 
+//--> className = "font-bold"
+
+
+
+
+
+// 13) To give borders to an element
 // --> e.g :- giving a border to our input box
 
 // --> className = "border border-solid border-black"
@@ -256,6 +288,8 @@ module.exports = {
 // --> border-solid :- gives the border a solid texture
 // --> border-black :- gives the colour of the border
 // --> All three attributes need to be givem
+
+
 
 
 
@@ -280,7 +314,7 @@ module.exports = {
 // E) Tailwind CSS continued :-
 
 
-// 9) To give round corners to an element
+// 14) To give round corners to an element
 // --> e.g :- giving a rounded corner to our search button
 
 // --> className = "rounded-lg"
@@ -297,7 +331,7 @@ module.exports = {
 
 
 
-// 10) Giving 200px exact width to an element :-
+// 15) Giving 200px exact width to an element :-
 // --> e.g :- giving a 200px width to an image
 // --> we have w-48 --> 192px
 // --> we have w-52 --> 208px
@@ -308,7 +342,7 @@ module.exports = {
 
 
 
-// 11) How to make the elements flex-wrap inside our flexbox
+// 16) How to make the elements flex-wrap inside our flexbox
 
 // --> e.g :- making our restaurand card container flex-wrap so that all the restaurant cards do not come horizontally.
 // --> Remember inorder to use flex-wrap, the flex property should be present in our container already
@@ -321,7 +355,7 @@ module.exports = {
 
 
 
-// 12) How to make the font of an element as BOLD
+// 17) How to make the font of an element as BOLD
 // --> e.g :- making the text of an <h1> tag bold
 
 // --> classname = "font-bold"
@@ -330,7 +364,7 @@ module.exports = {
 
 
 
-// 13) How to make the font-size of an element large
+// 18) How to make the font-size of an element large
 // --> e.g :- making the text of an <h1> tag large
 
 // --> classname = "text-xl"
@@ -347,7 +381,7 @@ module.exports = {
 
 
 
-// 14) How to access hover class like the way we use to have pseudo classes in tailwind
+// 19) How to access hover class like the way we use to have pseudo classes in tailwind
 // --> e.g :- when we hover onto some element, it should change the colour to dark gray, etc
 
 // --> classname = "hover:bg-gray-400"
@@ -356,7 +390,28 @@ module.exports = {
 
 
 
-// 15) Media queries
+
+// 20) To make the width of the component as half of its parent
+// --> e.g :- To make a div take half of the screen
+// --> Tailwing divides the parent into 12 pieces. We can use fraction to determine the width
+
+// --> classname = "w-6/12"
+
+
+
+
+
+// 21) To make an element to come at the centre of its parent
+// --> e.g :- To make a div come at the centre of the screen
+
+// --> className = "m-auto"       (meaning equal margin from all sides)
+
+
+
+
+
+
+// 22) Media queries
 // sm  --> small devices (mobile phones)
 // md  --> medium devices (tablets)
 // lg  --> large devices (desktops)
@@ -382,9 +437,14 @@ classname = "bg-pink-50 sm: bg-yellow-50 lg: bg-green-50"
 
 
 
-// 16)  Very easy to make the app in dark mode using "dark:"
+// 23)  Very easy to make the app in dark mode using "dark:"
 // --> e.g :- classname = "text-slate-500 dark:text-slate-400"
 
+
+
+
+// 24)  To give bottom border to an element
+// --> e.g :- classname = "border-gray-200 border-b-2"    (2 = 2px)
 
 //********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** */
 
