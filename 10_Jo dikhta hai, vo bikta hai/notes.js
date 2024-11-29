@@ -390,7 +390,10 @@ module.exports = {
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> b13cbca5089bcad1e7d5a818cb71aedfda049ae4
 // 20) To make the width of the component as half of its parent
 // --> e.g :- To make a div take half of the screen
 // --> Tailwing divides the parent into 12 pieces. We can use fraction to determine the width
@@ -447,7 +450,6 @@ classname = "bg-pink-50 sm: bg-yellow-50 lg: bg-green-50"
 // --> e.g :- classname = "border-gray-200 border-b-2"    (2 = 2px)
 
 //********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** */
-
 
 
 
