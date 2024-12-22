@@ -206,7 +206,6 @@ category?.card?.["card"]?.["@type"] === "Item.Category"
 
 // --> In the Accordian Header, we have to print the "Veg" or the "Non-veg" and inside the Accordian Data we will have the list items of both the categories
 
-<<<<<<< HEAD
 
 
 
@@ -266,5 +265,3 @@ Object.entries(obj_name).map((item) => {
 // Note :- 
 
 // 1:09:45
-=======
->>>>>>> b13cbca5089bcad1e7d5a818cb71aedfda049ae4
