@@ -22,18 +22,14 @@ const RestaurantMenu = () => {
   }
 
   const { veg, non_veg } = resInfo[current_idx]?.categories
-  const categories_name = [["Veg - Food", veg], ["Non Veg - Food", non_veg]]
+
   return (resInfo === null) ? (<Shimmer />) : (
     <div className='text-center'>
       <h1 className='font-bold mt-20 mb-6 text-7xl'>{resInfo[current_idx].resName}</h1>
-      <h3 className="font-bold text-4xl mb-28">{resInfo[current_idx].cuisine.join(", ") + " - " + resInfo[current_idx].costForTwo} </h3>
+      <h3 className="font-bold text-4xl mb-28">{resInfo[current_idx].cuisine.join(", ") + " - ₹" + resInfo[current_idx].costForTwo / 100} </h3>
 
-      {/* Categories */}
-
-      {Object.entries(resInfo[current_idx]?.categories).map((items, idx) => {
-
-        return <RestaurantCategory key={idx} type={categories_name[idx]}  ></RestaurantCategory>
-      })}
+      <RestaurantCategory category={veg} type={"Veg Food"} />
+      <RestaurantCategory category={non_veg} type={"Non-Veg Food"} />
 
     </div >
   )
